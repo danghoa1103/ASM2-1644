@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #888; /* Màu xám cho nền */
+        color: #fff; /* Màu trắng cho văn bản */
+      }
+    </style>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title><%= title %></title>
+    <script>
+      var interval = 5000; // Set the interval to 5000 milliseconds (5 seconds)
+      setTimeout(function() {
+        window.location.reload();
+      }, interval);
+    </script>
+    
+  </head>
+  <body>
+    <form action="/users/refreshtime" method="post"> 
+      Update interval (in seconds): 
+      <select name="interval">
+        <option value=45 selected>45s</option> 
+        <option value=60>1 min</option> 
+        <option value=120>2 min</option> 
+        <option value=180>3 min</option> 
+      </select> 
+      <input type="submit" value="Set">
+    </form>
+    <h1 class="thead-dark"><%= title %></h1>
+    <p>Welcome </p>
+    <%- select_form %>
+    <%- product_cells %>
+  </body>
+  <a href="/users/logout"> Logout </a>
+</html>
